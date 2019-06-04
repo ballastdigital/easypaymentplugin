@@ -28,6 +28,7 @@
 		font-family: var(--main-font-family) !important;
 		font-weight: normal !important;
 		color: #1d0f0f !important;
+		margin-bottom: 20px;
 	}
 	#amount{
 		width: 100% !important;
@@ -87,8 +88,13 @@
 	div#payment-font-end {
 	  font-family: var(--main-font-family) !important;
 	  font-size: var(--main-font-size) !important;
+	  margin-top: 20px;
+	  margin-bottom: 20px;
 	}
-
+	
+	span.card-type.changed {
+	    top: 16px;
+	}
 	section.tab_payment {
 	  border-bottom: 1px solid #ddd;
 	  /*height: 70px;*/
