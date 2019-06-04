@@ -1,11 +1,11 @@
 <?
 /**
- * Plugin Name: easy-payment-plugin
- * Plugin URI: https://supportnemo.com
- * Description: Easy payment plugin. 
+ * Plugin Name: easy-payment
+ * Plugin URI: https://itshare.asia
+ * Description: This is Easy Payment Plugin paypment 
  * Version: 1.0
- * Author: JACE GREBSKI
- * Author URI: https://jacegrebs.com
+ * Author: TUAN 'RENT' M.NGUYEN
+ * Author URI: https://itshare.asia
  * License: GPLv2 or later 
  */
 // Exit if accessed directly
@@ -72,11 +72,11 @@ function mfpd_settings_page_payment() {
 		<h2>Easy Payment Plugin</h2>
 		<div class="clear_payment"></div>
 		<div class="thanks_message">
-			Thank you for downloading the plugin, we hope to make charitable giving as seamless as possible. If there are any features or elements that you would like to be but into this platform please let us know at <a href="#">LINK</a>
+			Thank you for downloading the plugin, we hope to make charitable giving as seamless as possible. If there are any features or elements that you would like to be but into this platform please let us know at <a href="http://bitly.com.pluginform">http://bitly.com.pluginform</a>
 
 			<div class="way-to-use" style="margin-top: 20px;">
-				After you've been insert Stripe (Publishable API API key - Secret key) & Paypal (Client id key - Secret key). You can copy this shortcode <code>[easy_payments]</code> and paste it anywhere you want the payment form to display.
-			
+				After you've been insert Stripe (Publishable API API key - Secret key) & Paypal (Client id key - Secret key). You can copy this shortcode <code>[easy_payments]</code> and paste anywhere you want to display.
+				Thanks
 			</div>
 		</div>
 		<div class="clear_payment"></div>
@@ -236,10 +236,12 @@ function enqueue_scripts_and_styles_function(){
 	wp_enqueue_style('quinn');
 	wp_register_style('font-awesome','https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array());
 	wp_enqueue_style('font-awesome');
+	wp_register_style('rangeslider-css',plugins_url('css/rangeslider.css',__FILE__));
+	wp_enqueue_style('rangeslider-css');
 	wp_enqueue_script('jquerys-js', 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js', array());
 	wp_enqueue_script('jquerys-link-js', 'https://code.jquery.com/jquery-1.12.4.js', array());
 	wp_enqueue_script('12-js', 'https://code.jquery.com/ui/1.12.1/jquery-ui.js', array());
-	wp_enqueue_script('examples-js', plugins_url('js/rangeslider.js',__FILE__));
+	// wp_enqueue_script('examples-js', plugins_url('js/rangeslider.js',__FILE__));
 	wp_enqueue_script('jquery-quinnjs', plugins_url('js/rangeslider.min.js',__FILE__));
 	wp_enqueue_script('jquery-js_custom', plugins_url('js/js_custom.js',__FILE__));
  
@@ -305,9 +307,9 @@ function mfpd_settings_page_payment_setting() {
 				<input type="text" autocomplete="off" id="main-color" name="epm_main_color" style="width: 100%;" placeholder="Main color" value="<?php echo get_option('epm_main_color'); ?>">
 				<?php
 				$color__ = get_option('epm_main_color');
-				$color__ = $color__ != '' ? $color__ : '#377ab7';
+				$color__ = $color__ != '' ? $color__ : '#009999';
 				?>
-				<small style="position: relative;">Set main color for plugin. [Default: <code style="font-size: 11px; ?>">#377ab7</code>]. Current color: <span style="position: absolute; top: -2px; width: 15px; height: 15px; background: <?php echo $color__; ?>"></span> </small>
+				<small style="position: relative;">Set main color for plugin. [Default: <code style="font-size: 11px; ?>">#009999</code>]. Current color: <span style="position: absolute; top: -2px; width: 15px; height: 15px; background: <?php echo $color__; ?>"></span> </small>
 			</div>
 		</div>
 		<div class="field">

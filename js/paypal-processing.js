@@ -1,6 +1,6 @@
 // Render the PayPal button into #paypal-button-container
 try {
-    console.log ( paypal );
+    // console.log ( paypal );
     paypal.Buttons({
         style: {
             layout: 'horizontal'

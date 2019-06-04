@@ -1,6 +1,6 @@
 <?php
 	$main_color = get_option('epm_main_color');
-	$main_color = $main_color != '' ? $main_color : '#377ab7';
+	$main_color = $main_color != '' ? $main_color : '#009999';
 
 	$main_font_family = get_option('epm_font_family');
 	$main_font_family = $main_font_family != '' ? $main_font_family : 'Helvetica';
@@ -13,6 +13,7 @@
 	  --main-color: <?php echo $main_color; ?>;
 	  --main-font-family: <?php echo $main_font_family; ?>;
 	  --main-font-size: <?php echo $main_font_size; ?>;
+	  --main-font-size-label-input: <?php echo $main_font_size + 4; ?>;
 	}
 	/* CSS FONT END */
 	#payment-font-end{
@@ -23,18 +24,18 @@
 	}
 	.title-amount h5{
 		text-align: center;
-		font-size: 16px;
-		font-family: sans-serif;
-		font-weight: normal;
-		color: #1d0f0f;
+		font-size: var(--main-font-size) !important;
+		font-family: var(--main-font-family) !important;
+		font-weight: normal !important;
+		color: #1d0f0f !important;
 	}
 	#amount{
 		width: 100% !important;
 		text-align: center;
 		background: no-repeat !important;
 		border: 0;
-		font-family: var(--main-font-family);
-		color: var(--main-color);
+		font-family: var(--main-font-family) !important;
+		color: var(--main-color) !important;
 	    font-weight: bold;
 	    font-size: 30px;
 	}
@@ -43,7 +44,8 @@
 	}
 	.tab_payment ul{
 		text-align: center;
-	  margin-bottom: 0;
+	  	margin-bottom: 0;
+	  	padding: 0 !important;
 	}
 	.tab_payment ul li{
 		cursor: pointer;
@@ -54,7 +56,7 @@
 		display: none;
 	}
 	.activepayment{
-		color: var(--main-color);
+		color: var(--main-color) !important;
 		border-bottom: 2px solid;
 	}
 	#stripe-payment-form label{
@@ -62,7 +64,7 @@
 		float: left;
 		color: #969393;
 	  font-weight: normal;
-	  font-size: 15px;
+	  font-size: var(--main-font-size-label-input) !important;
 	}
 	#paypal__area label {
 		width: 100%;
@@ -75,27 +77,31 @@
 		width: 100%;
 		background: no-repeat;
 		border: none;
-	  border-bottom: 1px solid #c5c2c2;
-	  outline: none !important;
-	  font-family: var(--main-font-family);
+	  	border-bottom: 1px solid #c5c2c2;
+	  	outline: none !important;
+	  	font-family: var(--main-font-family) !important;
+	  	height: 50px;
+	  	font-size: var(--main-font-size) !important;
+	  	border-radius: 0 !important;
 	}
 	div#payment-font-end {
-	  font-family: var(--main-font-family);
-	  font-size: var(--main-font-size);
+	  font-family: var(--main-font-family) !important;
+	  font-size: var(--main-font-size) !important;
 	}
 
 	section.tab_payment {
 	  border-bottom: 1px solid #ddd;
 	  /*height: 70px;*/
 	  margin-bottom: 20px;
+	  margin-top: 20px;
 	}
 
 	#payment-font-end .tab_payment ul li.active {
-	  color: var(--main-color);
-	  border-bottom: 2px solid var(--main-color);
+	  color: var(--main-color) !important;
+	  border-bottom: 2px solid var(--main-color) !important;
 	}
 	#stripe-payment-form input::placeholder {
-		font-family: var(--main-font-family);
+		font-family: var(--main-font-family) !important;
 		color: normal;
 	}
 	#payment-font-end .form-option-payment .field {
@@ -113,15 +119,18 @@
 	    width: unset;
 	}
 	#payment-font-end button.ep-btn__pay {
-	  background: var(--main-color);
+	  background: var(--main-color) !important;
 	  width: 200px;
 	  border-radius: 40px;
 	  font-weight: normal;
 	  transition: all .3s;
 	  margin: 0 auto;
+	  padding: 20px;
+	  	font-size: var(--main-font-size) !important;
+	    color: #fff;
 	}
 	#payment-font-end button.ep-btn__pay:hover {
-	  background: var(--main-color);
+	  background: var(--main-color) !important;
 		box-shadow: 0px 6px 20px 0px rgba(0,0,0,0.2);
 	}
 	#payment-font-end .field.button-pay {
@@ -136,7 +145,7 @@
 	    height: 10px;
 	    font-family: FontAwesome;
 	    top: 32px;
-	    color: var(--main-color);
+	    color: var(--main-color) !important;
 	    right: 0;
 	}
 
@@ -146,7 +155,7 @@
 
 	span.card-type > img {
 	    height: 30px;
-	    margin-top: 8px;
+	    top: 10px;
 	}
 	span.card-type.changed > img {
 	    height: 45px;
@@ -158,9 +167,10 @@
 
 	.switch {
 	  position: relative;
-	  display: inline-block;
+	  display: flex;
 	  width: 100%;
 	  height: 30px;
+	  align-items: center;
 	}
 
 	.switch input { 
@@ -194,7 +204,7 @@
 	}
 
 	input:checked + .slider {
-	  background-color: var(--main-color);
+	  background-color: var(--main-color) !important;
 	}
 
 	input:focus + .slider {
@@ -219,19 +229,20 @@
 
 	span.right-toggle-label {
 	    margin-left: 60px;
+	    font-weight: normal !important;
 	}
 
 	.plugin-error__epm {
 	  border-left: 3px solid #FF7361;
 	  padding-left: 20px;
 	  background: #eaeaea;
-	  font-family: var(--main-font-family);
+	  font-family: var(--main-font-family) !important;
 	  font-size: 20px;
 	  padding-top: 10px;
 	  padding-bottom: 10px;
 	}
 	.payment-errors {
-	  font-family: var(--main-font-family);
+	  font-family: var(--main-font-family) !important;
 	  margin: 0 auto !important;
 	  padding: 40px 50px 40px 50px;
 	  background: #dcdcdc;
@@ -240,11 +251,11 @@
 	}
 
 	.plugin-success__epm {
-	  font-family: var(--main-font-family);
+	  font-family: var(--main-font-family) !important;
 	  margin: 0 auto !important;
 	  padding: 40px 50px 40px 50px;
 	  background: #dcdcdc;
-	  border-left: 8px solid var(--main-color);
+	  border-left: 8px solid var(--main-color) !important;
 	  box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.2);
 	}
 	#paypal-notification .wrapper {
@@ -252,14 +263,14 @@
 	  padding-top: 20px;
 	}
 	.paypal-notification__seccess {
-	  border: 1px solid var(--main-color);
+	  border: 1px solid var(--main-color) !important;
 	  border-bottom-right-radius: 4px;
 	  border-top-right-radius: 4px;
-	  border-left: 6px solid var(--main-color);
+	  border-left: 6px solid var(--main-color) !important;
 	  padding: 10px;
 	}
 	div#paypal-error__client-id .wrapper {
-	  font-family: var(--main-font-family);
+	  font-family: var(--main-font-family) !important;
 	  padding: 40px 50px 40px 50px;
 	  background: #dcdcdc;
 	  border-left: 8px solid #e63d3d;
@@ -277,7 +288,7 @@
 	.ui-button:hover,
 	.ui-button:focus {
 		border: 1px solid #cccccc;
-		background: <?php echo $main_color; ?>;
+		background: var(--main-color) !important;
 		font-weight: normal;
 		color: #2b2b2b;
 	}
@@ -291,11 +302,35 @@
 	html .ui-button.ui-state-disabled:hover,
 	html .ui-button.ui-state-disabled:active {
 		border: 1px solid #c5c5c5;
-		background: <?php echo $main_color; ?>;
+		background: var(--main-color) !important;
 		font-weight: normal;
 		color: #454545;
 	}
 	.ui-widget-header {
-		background: <?php echo $main_color; ?>;
+		background: var(--main-color) !important;
+	}
+	.rangeslider--horizontal {
+	    height: 6px !important;
+	}
+
+	.rangeslider--horizontal .rangeslider__handle {
+	    top: -13px !important;
+	    width: 30px;
+	    height: 30px;
+	    box-shadow: none;
+	}
+
+	.rangeslider__handle:after {
+	    background: var(--main-color) !important;
+	    width: 100%;
+	    height: 100%;
+	}
+
+	.rangeslider__fill {
+	    background: var(--main-color) !important;
+	}
+
+	.rangeslider {
+	    background: none;
 	}
 	<?php echo '</style>';

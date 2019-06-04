@@ -35,6 +35,10 @@ function easy_payments_func(){
 
     $min_price_php      = get_option('starting_amount_payment');
 
+    if ( $min_price_php == '' ) {
+        $min_price_php = 1;
+    }
+
     $BASE_URL_PLUGIN    = plugin_dir_url(__FILE__);
 
     $min_price_php      = isset($min_price_php) ? (int)$min_price_php : 1;
@@ -46,9 +50,12 @@ function easy_payments_func(){
         ?>
         <div id="payment-font-end">
             <section class="title-amount"><h5>Amount</h5></section>
+            
             <p>
                 <input type="text" id="amount" readonly>
             </p>
+
+            <input type="range" min="1" max="1000" step="1" value="<?php echo $min_price_php; ?>">
            
             <div id="slider-range"></div>
 
@@ -62,7 +69,7 @@ function easy_payments_func(){
             <section class="form-option-payment" id="creadit-card__area">
                 <form method="post" id="stripe-payment-form">
                     <!-- Input for email -->
-                    <input type="hidden" name="price-to-charge" value="<?php echo $min_price_php + 50; ?>">
+                    <input type="hidden" name="price-to-charge" value="<?php echo $min_price_php; ?>">
                     <input type="hidden" name="action" value="stripe"/>
                     <input type="hidden" name="redirect" value="<?php echo get_permalink(); ?>"/>
                     <input type="hidden" name="stripe_nonce" value="<?php echo wp_create_nonce('stripe-nonce'); ?>"/>
@@ -133,31 +140,23 @@ function easy_payments_func(){
                 <div id="paypal-notification"></div>
                 <div id="paypal-error__client-id"></div>
             </section>
-            <script src="https://www.paypal.com/sdk/js?client-id=<?php echo $client_id_key; ?>&currency=USD"></script>
-            <script src="<?php echo $BASE_URL_PLUGIN . '../js/paypal-processing.js'; ?>"></script>
+            <script src="https://www.paypal.com/sdk/js?client-id=<?php echo $client_id_key; ?>&currency=USD&disable-funding=credit"></script>
+            <script src="<?php echo STRIPE_BASE_URL; ?>/js/paypal-processing.js"></script>
             <script>
                 var __price = <?php echo (int)$min_price_php; ?>;
                 $( function() {
                     var min_price_payment = <?php echo $min_price_php; ?>;
-                    $( "#slider-range" ).slider({
-                        range: true,
-                        min: 1,
-                        max: 1000,
-                        values: [ 1, min_price_payment ],
-                        slide: function( event, ui ) {
-                            $( "#amount" ).val( "$" + ui.values[ 1 ]);
-                            var price = $('#amount').val().slice(1);
-                            __price = price;
-                            $('input[name="price-to-charge"]').attr('value', price);
-                            $('input[name="amount"]').attr('value', price);
+                    
+                    $( "#amount" ).val( "$" + min_price_payment );
+                    $('input[type="range"]').rangeslider({
+                        polyfill: false,
+                        onSlide: function(pos, value) {
+                            slideValue = value;
+                            __price = slideValue;
+                            $('input[name="price-to-charge"]').attr('value', slideValue);
+                            $('input[name="amount"]').attr('value', slideValue);
+                            $( "#amount" ).val( "$" + slideValue );
                         }
-                    });
-                    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 1 ) );
-                    var _cnt = 1;
-                    $( '#slider-range span' ).each(function() {
-                        var __this = $(this);
-                        __this.addClass('display-' + _cnt);
-                        ++ _cnt;
                     });
                 });
             </script>
