@@ -248,10 +248,14 @@ function enqueue_scripts_and_styles_function(){
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('stripe', 'https://js.stripe.com/v1/');
 	wp_enqueue_script('stripe-processing', plugin_dir_url(__FILE__) . 'js/stripe-processing.js');
-	$publishable_key = get_option('sandbox_stripe_api_publishable_key');
+	$publishable_key 	= get_option('sandbox_stripe_api_publishable_key');
+	// Get notication message from setting plugin.
+    $msg_notify         = get_option('success_message_payment');
+    $msg_notify         = $msg_notify != '' ? $msg_notify : 'Thanks for your donation..';
 	wp_localize_script('stripe-processing', 'stripe_vars', array(
-			'publishable_key' => $publishable_key,
-			'baseUrlPlugin' => STRIPE_BASE_URL
+			'publishable_key' 	=> $publishable_key,
+			'baseUrlPlugin' 	=> STRIPE_BASE_URL,
+			'msg_success' 		=> $msg_notify
 		)
 	);
 }
@@ -342,7 +346,7 @@ function mfpd_settings_page_payment_setting() {
 add_filter('plugin_action_links_'.plugin_basename(__FILE__), '__add_link_to_list_plugin_func');
 function __add_link_to_list_plugin_func( $links ) {
 	$links[] = '<a href="' .
-		admin_url( 'admin.php?page=easy-payment%2Ffunction.php' ) .
+		admin_url( 'admin.php?page=easypaymentplugin%2Ffunction.php' ) .
 		'">' . __('Settings') . '</a>';
 	return $links;
 }

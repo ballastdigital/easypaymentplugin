@@ -1,5 +1,5 @@
 <?php
-	$main_color = get_option('epm_main_color');
+	$main_color = get_option('epm_main_color'); 
 	$main_color = $main_color != '' ? $main_color : '#009999';
 
 	$main_font_family = get_option('epm_font_family');

@@ -22,7 +22,7 @@ try {
                 document.getElementById('paypal-notification').innerHTML =
                 '<div class="wrapper">' +
                     '<div class="paypal-notification__seccess">' +
-                        '<div class="text"><?php echo $msg_notify; ?></div>' + 
+                        '<div class="text">' + stripe_vars.msg_success + '</div>' + 
                         '<div class="money-transfer">Price: ' + details.purchase_units[0].amount.value + '(' + details.purchase_units[0].amount.currency_code + ')</div>' +
                     '</div>'
                 '</div>';

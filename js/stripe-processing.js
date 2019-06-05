@@ -26,7 +26,7 @@ function stripeResponseHandler(status, response) {
         var token = response['id'];
         // insert the token into the form so it gets submitted to the server
         form$.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
-        // and submit
+        // and submit fdsa
         form$.get(0).submit();
     }
 }
