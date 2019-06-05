@@ -27,7 +27,7 @@ try {
                     '</div>'
                 '</div>';
 
-                // alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                // alert('Transaction completed by ' + details.payer.name.given_name + '!...');
             });
         }
     }).render('#paypal-button-container');

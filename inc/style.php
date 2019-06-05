@@ -93,7 +93,7 @@
 	}
 	
 	span.card-type.changed {
-	    top: 16px;
+	    top: 17px;
 	}
 	section.tab_payment {
 	  border-bottom: 1px solid #ddd;
@@ -148,7 +148,7 @@
 
 	span.card-type {
 	    position: absolute;
-	    height: 10px;
+	    /*height: 10px;*/
 	    font-family: FontAwesome;
 	    top: 32px;
 	    color: var(--main-color) !important;
@@ -160,8 +160,8 @@
 	}
 
 	span.card-type > img {
-	    height: 30px;
-	    top: 10px;
+	    /*height: 30px;*/
+	    top: 15px;
 	}
 	span.card-type.changed > img {
 	    height: 45px;
@@ -338,5 +338,17 @@
 
 	.rangeslider {
 	    background: none;
+	}
+
+	@media (max-width: 767px) {
+	    #payment-font-end .field.two-columns {
+	        grid-template-columns: 1fr;
+	    }
+	    #stripe-payment-form input {
+		    font-size: 18px !important;
+		}
+		span.right-toggle-label {
+			font-size: 16px;
+		}
 	}
 	<?php echo '</style>';

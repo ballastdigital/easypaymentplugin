@@ -84,7 +84,7 @@ function easy_payments_func(){
                     <!-- Input for seri account bank -->
                     <div class="field creadit-card">
                         <label for="creadit-card-payment"><?php _e('Credit Card', 'epm_efe'); ?></label>
-                        <input type="text" maxlength="17" id="creadit-card-payment" name="creadit-card-payment" placeholder="Credit Card">
+                        <input type="text" maxlength="17" id="creadit-card-payment" autocomplete="off" name="creadit-card-payment" placeholder="Credit Card">
                         <span class="card-type changed">
                             <img src="<?php echo STRIPE_BASE_URL; ?>/images/credit-card.png" >
                         </span>
@@ -93,14 +93,14 @@ function easy_payments_func(){
                     <div class="field two-columns">
                         <div class="columns1">
                             <label for="expiration-date">Expiration date</label>
-                            <input type="text" id="expiration_date_payment" onkeyup="formatDate(this.value);" maxlength="5" name="expiration_date_payment" placeholder="Expiration date (MM/YY)">
+                            <input type="text" id="expiration_date_payment" onkeyup="formatDate(this.value);" maxlength="5" name="expiration_date_payment" autocomplete="off" placeholder="Expiration date (MM/YY)">
                             <span class="card-type">
                                 <img src="<?php echo STRIPE_BASE_URL; ?>/images/calendar.svg">
                             </span>
                         </div>
                         <div class="columns2">
                             <label for="cvc-number-payment"><?php _e('CVC', 'epm_efe'); ?></label>
-                            <input type="password" id="cvc-number-payment" name="cvc-number-payment" placeholder="CVC">
+                            <input type="password" id="cvc-number-payment" name="cvc-number-payment" autocomplete="off" placeholder="CVC">
 
                             <span class="card-type">
                                 <img src="https://img.icons8.com/material/24/000000/padlock-outline.png">
