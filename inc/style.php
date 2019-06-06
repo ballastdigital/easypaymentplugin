@@ -340,6 +340,17 @@
 	    background: none;
 	}
 
+	.field.description-form {
+	    text-align: center;
+	    color: #969393;
+	    font-size: var(--main-font-size);
+	}
+
+	.field.description-form a {
+	    color: var(--main-color);
+	    text-decoration: none;
+	}
+
 	@media (max-width: 767px) {
 	    #payment-font-end .field.two-columns {
 	        grid-template-columns: 1fr;
