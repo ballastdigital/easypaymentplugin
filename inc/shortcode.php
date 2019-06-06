@@ -139,7 +139,7 @@ function easy_payments_func(){
                         <span class="right-toggle-label"><?php _e('Make this donation monthly.', 'epm_efe'); ?></span>
                     </label>
                 </div>
-                <div id="paypal-button-container"></div>
+                <div id="paypal-button-container" style="margin: 0 auto; text-align: center;"></div>
                 <div id="paypal-notification"></div>
                 <div id="paypal-error__client-id"></div>
             </section>

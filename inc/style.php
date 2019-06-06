@@ -6,21 +6,19 @@
 	$main_font_family = $main_font_family != '' ? $main_font_family : 'Helvetica';
 
 	$main_font_size = get_option('epm_font_size');
-	$main_font_size = $main_font_size != '' ? $main_font_size : '16';
+	$main_font_size = $main_font_size != '' ? $main_font_size : '20px';
 	?>
 	<?php echo '<style>'; ?>
 	:root {
 	  --main-color: <?php echo $main_color; ?>;
 	  --main-font-family: <?php echo $main_font_family; ?>;
-	  --main-font-size: <?php echo $main_font_size; ?>;
-	  --main-font-size-label-input: <?php echo $main_font_size + 4; ?>;
+	  --main-font-size: <?php echo $main_font_size . 'px'; ?>;
+	  --main-font-size-label-input: <?php echo $main_font_size - 3 . 'px'; ?>;
 	}
 	/* CSS FONT END */
 	#payment-font-end{
-		/*width: 70%;*/
 		min-height: 300px;
 		margin: 0 auto;
-		/*padding: 40px 50px 40px 50px;*/
 	}
 	.title-amount h5{
 		text-align: center;
@@ -36,7 +34,8 @@
 		background: no-repeat !important;
 		border: 0;
 		font-family: var(--main-font-family) !important;
-		color: var(--main-color) !important;
+		/*color: var(--main-color) !important;*/
+		color: #333333;
 	    font-weight: bold;
 	    font-size: 30px;
 	}
@@ -87,7 +86,7 @@
 	}
 	div#payment-font-end {
 	  font-family: var(--main-font-family) !important;
-	  font-size: var(--main-font-size) !important;
+	  /*font-size: var(--main-font-size) !important;*/
 	  margin-top: 20px;
 	  margin-bottom: 20px;
 	}
@@ -126,7 +125,7 @@
 	}
 	#payment-font-end button.ep-btn__pay {
 	  background: var(--main-color) !important;
-	  width: 200px;
+	  width: 40%;
 	  border-radius: 40px;
 	  font-weight: normal;
 	  transition: all .3s;
@@ -148,9 +147,8 @@
 
 	span.card-type {
 	    position: absolute;
-	    /*height: 10px;*/
 	    font-family: FontAwesome;
-	    top: 32px;
+	    top: 50%;
 	    color: var(--main-color) !important;
 	    right: 0;
 	}
@@ -159,10 +157,10 @@
 		display: none;
 	}
 
-	span.card-type > img {
-	    /*height: 30px;*/
+	/*span.card-type > img {
+	    height: 30px;
 	    top: 15px;
-	}
+	}*/
 	span.card-type.changed > img {
 	    height: 45px;
 	    margin: 0;
@@ -243,7 +241,7 @@
 	  padding-left: 20px;
 	  background: #eaeaea;
 	  font-family: var(--main-font-family) !important;
-	  font-size: 20px;
+	  font-size: var(--main-font-size) !important;
 	  padding-top: 10px;
 	  padding-bottom: 10px;
 	}
@@ -316,11 +314,11 @@
 		background: var(--main-color) !important;
 	}
 	.rangeslider--horizontal {
-	    height: 6px !important;
+	    height: 1px !important;
 	}
 
 	.rangeslider--horizontal .rangeslider__handle {
-	    top: -13px !important;
+	    top: -15px !important;
 	    width: 30px;
 	    height: 30px;
 	    box-shadow: none;
@@ -334,6 +332,8 @@
 
 	.rangeslider__fill {
 	    background: var(--main-color) !important;
+	    height: 3px !important;
+	    top: -1px !important;
 	}
 
 	.rangeslider {
@@ -343,7 +343,7 @@
 	.field.description-form {
 	    text-align: center;
 	    color: #969393;
-	    font-size: var(--main-font-size);
+	    font-size: var(--main-font-size-label-input);
 	}
 
 	.field.description-form a {

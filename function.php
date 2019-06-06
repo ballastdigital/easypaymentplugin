@@ -327,7 +327,7 @@ function mfpd_settings_page_payment_setting() {
 			<label for="main-font-size">Font size: </label>
 			<div class="right">
 				<input type="text" autocomplete="off" id="main-font-size" name="epm_font_size"  style="width: 100%;" placeholder="Font size" value="<?php echo get_option('epm_font_size'); ?>">
-				<small>Set font size for plugin's text. [Default: <code style="font-size: 11px; ?>">16</code>]</small>
+				<small>Set font size for plugin's text. [Default: <code style="font-size: 11px; ?>">20px</code>]</small>
 			</div>
 		</div>
 		<?php submit_button(); ?>
