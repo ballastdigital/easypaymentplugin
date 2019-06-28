@@ -38,6 +38,7 @@
 		color: #333333;
 	    font-weight: bold;
 	    font-size: 30px;
+	    padding-bottom: 30px;
 	}
 	.tab_payment ul li{
 		display: inline-block;
