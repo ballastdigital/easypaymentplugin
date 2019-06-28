@@ -1,5 +1,5 @@
-#toplevel_page_easypaymentplugin-function img {
-	width: 30px;opacity: 9 !important;
+#adminmenu div.wp-menu-image > img {
+	width: 25px;
 }
 #field_payment input{width: 100%;border: 2px solid black;min-height: 40px;}
 #payment_ease_paypal{
