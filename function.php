@@ -68,7 +68,7 @@ add_action('admin_menu', 'mfpd_create_menu');
 /*==================================== ENTER FIELD ===================================*/
 function mfpd_settings_page_payment() {
 	?>
-	<div id="payment_ease_paypal" class="wrap">
+	<div id="payment_ease_paypal" class="wrapper">
 		<h2>Easy Payment Plugin</h2>
 		<div class="clear_payment"></div>
 		<div class="thanks_message">
@@ -298,11 +298,7 @@ function mfpd_settings_page_payment_setting() {
 	<h3>Setting frontend</h3>
 	
 	<div class="clear_payment"></div>
-	<?php if( isset($_GET['settings-updated']) ) { ?>
-		<div id="message" class="updated">
-			<p><strong><?php _e('Settings saved.') ?></strong></p>
-		</div>
-	<?php } ?>
+	
 	<form method="post" action="options.php">
 		<?php settings_fields( 'mfpd-settings-group-frontend' ); ?>
 		<div class="field">

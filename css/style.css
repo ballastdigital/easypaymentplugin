@@ -5,6 +5,9 @@
 #payment_ease_paypal{
 	border: 2px solid black;padding: 30px;width: 60%;margin: 0 auto; margin-top: 20px;background: white;
 }
+#payment_ease_paypal .notice {
+    display: none;
+}
 #payment_ease_paypal h2{font-weight: bold;}
 .thanks_message{font-size: 16px;}
 .clear_payment{
