@@ -9,7 +9,7 @@ if ( $emp_type_payment == '' ) {
 if ( $emp_type_payment == 'sandbox' ) {
 	$publishable_key 	= get_option('sandbox_stripe_api_publishable_key');
 	$secret_key 		= get_option('sandbox_stripe_api_secret_key');
-} else if ( $emp_type_payment == 'livemod' ) {
+} else if ( $emp_type_payment == 'livemode' ) {
 	$publishable_key 	= get_option('livemode_stripe_api_publishable_key');
 	$secret_key 		= get_option('livemode_stripe_api_secret_key');
 }
