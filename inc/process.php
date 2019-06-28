@@ -52,36 +52,41 @@ function payment_by_stripe_func() {
 		// Process if user wanna monthly payment.
 		if ( $set_donation_monthly == 'on' ) {
 
-			$plan__id = 'plan_' . generateRandomString(14);
+			try {
+				$plan__id = 'plan_' . generateRandomString(14);
 
-			// Create new Plan with API(s).
-			\Stripe\Plan::create([
-			  	'amount' 	=> $price * 100,
-			  	'interval' 	=> 'month',
-			  	'product' 	=> [
-			    	'name' 	=> $email
-			  	],
-			  	'currency' 	=> 'usd',
-			  	'id' 		=> $plan__id
-			]);
+				// Create new Plan with API(s).
+				\Stripe\Plan::create([
+				  	'amount' 	=> $price * 100,
+				  	'interval' 	=> 'month',
+				  	'product' 	=> [
+				    	'name' 	=> $email
+				  	],
+				  	'currency' 	=> 'usd',
+				  	'id' 		=> $plan__id
+				]);
 
-			// Create new user to subscriptions Plan we just created.
-			$customer = \Stripe\Customer::create([
-				'email' 	=> $email,
-				'source' 	=> $token
-			]);
+				// Create new user to subscriptions Plan we just created.
+				$customer = \Stripe\Customer::create([
+					'email' 	=> $email,
+					'source' 	=> $token
+				]);
 
-			// Subscription new user with new Plan with API(s).
-			\Stripe\Subscription::create([
-			  	"customer" 	=> $customer->id,
-			  	"items" 	=> [[
-			      	"plan" 	=> $plan__id,
-			    ],]
-			]);
+				// Subscription new user with new Plan with API(s).
+				\Stripe\Subscription::create([
+				  	"customer" 	=> $customer->id,
+				  	"items" 	=> [[
+				      	"plan" 	=> $plan__id,
+				    ],]
+				]);
 
 
-			// redirect on successful payment
-			$redirect = add_query_arg('payment', 'paid', $_POST['redirect']);
+				// redirect on successful payment
+				$redirect = add_query_arg('payment', 'paid', $_POST['redirect']);
+			} catch (Exception $e) {
+				// redirect on failed payment
+				$redirect = add_query_arg('payment', 'failed', $_POST['redirect']);
+			}
 
 		} else {
 	 		try {
