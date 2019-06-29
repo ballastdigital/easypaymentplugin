@@ -132,6 +132,7 @@ function easy_payments_func(){
             </section>
 
             <section class="form-option-payment" id="paypal__area">
+                <?php if ( $client_id_key != '' && $secret_id_key != '' ) { ?>
                 <div class="field checkbox-custom__eap">
                     <label class="switch">
                         <input type="checkbox" name="set-monthly-donation-payment" class="checkbox-custom__eap" checked id="checkbox-custom__eap">
@@ -142,9 +143,18 @@ function easy_payments_func(){
                 <div id="paypal-button-container" style="margin: 0 auto; text-align: center;"></div>
                 <div id="paypal-notification"></div>
                 <div id="paypal-error__client-id"></div>
+                <?php } else { ?>
+                <div class="plugin-error__epm">
+                    Something went wrong with this feature. Try again later.
+                </div>
+                <?php } ?>
             </section>
-            <script src="https://www.paypal.com/sdk/js?client-id=<?php echo $client_id_key; ?>&currency=USD&disable-funding=credit"></script>
-            <script src="<?php echo STRIPE_BASE_URL; ?>/js/paypal-processing.js"></script>
+
+            <?php if ( $client_id_key != '' ) { ?>
+                <script src="https://www.paypal.com/sdk/js?client-id=<?php echo $client_id_key; ?>&currency=USD&disable-funding=credit"></script>
+                <script src="<?php echo STRIPE_BASE_URL; ?>/js/paypal-processing.js"></script>
+            <?php } ?>
+            
             <script>
                 var __price = <?php echo (int)$min_price_php; ?>;
                 $( function() {
@@ -168,7 +178,7 @@ function easy_payments_func(){
     } else {
         ?>
         <div class="plugin-error__epm">
-            You must be set payment's API Key for Stripe and Paypal to use this shortcode.
+            Something went wrong with this feature. Try again later.
         </div>
         <?php
     }
