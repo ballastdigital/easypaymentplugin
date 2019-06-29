@@ -260,8 +260,6 @@ function enqueue_scripts_and_styles_function(){
 	} else if ( $emp_type_payment == 'livemode' ) {
 		$publishable_key 	= get_option('livemode_stripe_api_publishable_key');
 	}
-
-	$publishable_key 	= get_option('sandbox_stripe_api_publishable_key');
 	// Get notication message from setting plugin.
     $msg_notify         = get_option('success_message_payment');
     $msg_notify         = $msg_notify != '' ? $msg_notify : 'Thanks for your donation..';
