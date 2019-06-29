@@ -248,6 +248,19 @@ function enqueue_scripts_and_styles_function(){
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('stripe', 'https://js.stripe.com/v1/');
 	wp_enqueue_script('stripe-processing', plugin_dir_url(__FILE__) . 'js/stripe-processing.js');
+
+	$emp_type_payment = get_option('emp_type_payment');
+
+	if ( $emp_type_payment == '' ) {
+		$emp_type_payment = 'sandbox';
+	}
+
+	if ( $emp_type_payment == 'sandbox' ) {
+		$publishable_key 	= get_option('sandbox_stripe_api_publishable_key');
+	} else if ( $emp_type_payment == 'livemode' ) {
+		$publishable_key 	= get_option('livemode_stripe_api_publishable_key');
+	}
+
 	$publishable_key 	= get_option('sandbox_stripe_api_publishable_key');
 	// Get notication message from setting plugin.
     $msg_notify         = get_option('success_message_payment');
