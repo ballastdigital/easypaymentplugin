@@ -90,11 +90,17 @@ function payment_by_stripe_func() {
 
 		} else {
 	 		try {
+
+				$customer = \Stripe\Customer::create([
+					'email' 	=> $email,
+					'source' 	=> $token
+				]);
+
 				$charge = \Stripe\Charge::create(
 					array(
 						'amount' 	=> $price * 100,
 						'currency' 	=> 'usd',
-						'card' 		=> $token
+						'customer'	=> $customer->id
 					)
 				);
 	 
