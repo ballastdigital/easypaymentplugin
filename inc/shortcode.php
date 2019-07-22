@@ -121,7 +121,7 @@ function easy_payments_func(){
                         <button class="ep-btn__pay" id="stripe-submit"><?php _e('Pay', 'epm_efe'); ?></button>
                     </div>
                     <div class="field description-form">
-                        If you are in the US and require a 501(c) donation credit, <a href="#">please click here</a>
+                        <!-- If you are in the US 501(c) donation credit area -->
                     </div>
                 </form>
                 <?php if(isset($_GET['payment']) && $_GET['payment'] == 'paid') { ?>

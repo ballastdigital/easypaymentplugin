@@ -2,10 +2,10 @@
 /**
  * Plugin Name: easy-payment
  * Plugin URI: https://itshare.asia
- * Description: This is Easy Payment Plugin paypment 
+ * Description: The Easy Payment Plugin lets you painlessly collect one off or monthly payments form your userbase.
  * Version: 1.0
- * Author: TUAN 'RENT' M.NGUYEN
- * Author URI: https://itshare.asia
+ * Author: Ballast Digital
+ * Author URI: https://jacegrebs.com
  * License: GPLv2 or later 
  */
 // Exit if accessed directly
@@ -72,7 +72,7 @@ function mfpd_settings_page_payment() {
 		<h2>Easy Payment Plugin</h2>
 		<div class="clear_payment"></div>
 		<div class="thanks_message">
-			Thank you for downloading the plugin, we hope to make charitable giving as seamless as possible. If there are any features or elements that you would like to be but into this platform please let us know at <a href="http://bitly.com.pluginform">http://bitly.com.pluginform</a>
+			Thank you for downloading the plugin, we hope to make charitable giving as seamless as possible. If there are any features or elements that you would like to be but into this platform please let us know at <a href="https://ballastdigital.com">https://ballastdigital.com</a>
 
 			<div class="way-to-use" style="margin-top: 20px;">
 				After you've been insert Stripe (Publishable API API key - Secret key) & Paypal (Client id key - Secret key). You can copy this shortcode <code>[easy_payments]</code> and paste anywhere you want to display.
